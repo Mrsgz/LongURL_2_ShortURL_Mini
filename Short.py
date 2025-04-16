@@ -2,9 +2,9 @@ import logging
 import os
 from logging.handlers import RotatingFileHandler
 from urllib.parse import urljoin  # 新增导入
-
 from flask import Flask, render_template, request, redirect, jsonify  # 添加 jsonify
 from flask_sqlalchemy import SQLAlchemy
+import atexit
 
 ALPHABET = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
 
@@ -105,7 +105,6 @@ handler.setFormatter(formatter)
 logger.addHandler(handler)
 
 # 在应用退出时添加（可选）
-import atexit
 atexit.register(lambda: handler.close())
 
 def decrypt(encrypted):
