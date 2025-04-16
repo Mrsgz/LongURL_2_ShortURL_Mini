@@ -197,8 +197,8 @@ def create_short_url(long_url, custom_suffix=None):
 
 
 # 路由：主页，显示输入框
-@short_url_flask_app.route("/short/", methods=["GET", "POST"])
-@short_url_flask_app.route("/short", methods=["GET", "POST"])
+@short_url_flask_app.route("/", methods=["GET", "POST"])
+@short_url_flask_app.route("/", methods=["GET", "POST"])
 def index():
     if request.method == "POST":
         is_api = 'api' in request.args or 'api' in request.form  # 新增 API 参数检测
@@ -232,7 +232,7 @@ def index():
     return render_template("short.html")
 
 # 路由：处理短链接访问
-@short_url_flask_app.route("/short/<short_url>")
+@short_url_flask_app.route("/<short_url>")
 def redirect_to_long_url(short_url):
     try:
         original_id = decrypt(short_url)

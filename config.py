@@ -1,1 +1,1 @@
-domain = "https://ele.cx/short/"
+domain = "https://ele.cx/"
