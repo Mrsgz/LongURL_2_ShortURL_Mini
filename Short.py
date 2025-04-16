@@ -5,6 +5,7 @@ from urllib.parse import urljoin  # 新增导入
 from flask import Flask, render_template, request, redirect, jsonify  # 添加 jsonify
 from flask_sqlalchemy import SQLAlchemy
 import atexit
+from config import domain
 
 ALPHABET = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
 
@@ -22,7 +23,6 @@ perm = [3, 5, 0, 1, 4, 2]
 # 计算置换的逆序：若加密时 new[i] = s[perm[i]]，解密时恢复 s[j] = new[inverse_perm[j]]
 # 手工计算得到 inverse_perm = [2, 3, 5, 0, 4, 1]
 inverse_perm = [2, 3, 5, 0, 4, 1]
-domain = "http://127.0.0.1:5000/short/"
 
 def modinv(a, m):
     """

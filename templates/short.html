@@ -194,7 +194,7 @@
             <div class="short-url">
                 <h2>短链接：</h2>
                 <a href="/short/{{ short_url }}" target="_blank" id="short-url-link">
-                    {{ request.host_url }}{{ short_url }}
+                    {{ domain }}{{ short_url }}
                 </a>
             </div>
 
@@ -209,7 +209,7 @@
 
     <script>
         async function copyToClipboard() {
-            const shortUrl = "{{ request.host_url }}{{ short_url }}";
+            const shortUrl = "{{ domain }}{{ short_url }}";
 
 
             try {
